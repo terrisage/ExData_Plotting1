@@ -1,12 +1,12 @@
+## This assignment uses data from the UC Irvine Machine Learning Repository, a popular 
+## repository for machine learning datasets.
 ## Assume dataset is in current working directory
 ## Read in entire dataset
-powerData <- read.table("household_power_consumption.txt",
-                 header=TRUE,
-                 sep=";",
-                 colClasses=c("character", "character", rep("numeric",7)),
-                 na="?")
+powerData <- read.table("household_power_consumption.txt", header=TRUE,sep=";",
+    colClasses=c("character", "character", rep("numeric",7)), na="?")
 
-# convert date and time variables to Date/Time class
+# Convert date and time variables to Date/Time class
+# Using strptime and as.Date() functions
 powerData$Time <- strptime(paste(powerData$Date, powerData$Time), "%d/%m/%Y %H:%M:%S")
 powerData$Date <- as.Date(powerData$Date, "%d/%m/%Y")
 
